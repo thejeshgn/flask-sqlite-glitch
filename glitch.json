@@ -1,4 +1,4 @@
 {
   "install": "python3 -m pip install -r requirements.txt; export ENV=production; export FLASK_APP=main; flask db upgrade",
-  "start": "export ENV=production; python3 -m gunicorn main:app;"
+  "start": "export ENV=production; export FLASK_APP=main; flask db upgrade; python3 -m gunicorn main:app;"
 }

@@ -8,3 +8,4 @@ coverage
 beautifulsoup4
 Flask-Migrate
 gunicorn
+python-dotenv
