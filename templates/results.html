@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Search Results</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/custom_validations.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">Search Results</h1>
+                <h4 class="display-8">Query: {{q}}</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <ol>
+                    {% for article in results %}
+                        <li>
+                            <a href='/article/{{ article["rowid"] }}'>{{ article["title"]}}</a>
+                        </li>
+                    {% endfor %}
+                    </ol>
+                </div>
+                <div class ="col-md-4">
+                    {% include 'sidebar.html' %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

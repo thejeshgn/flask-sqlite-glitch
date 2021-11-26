@@ -1,0 +1,11 @@
+{% if current_user.is_authenticated %}
+    Hi {{current_user.username}}, Welcome.
+    <br> Your role:
+    {% for role in current_user.roles%}
+        {{role.name}}
+    {% endfor %}
+    <br>
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a> or <a href="/register">Register</a>
+{% endif %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Articles</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-4">Author Articles - {{username}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    {% for article in articles %}
+                        <div>
+                            <h2>{{ article["title"]}}</h2>
+                            <p>Written by:
+                                {% for author in article["authors"] %}
+                                    {{ author["username"] }}{% if not loop.last %},{% endif %}
+                                {% endfor %}
+                            </p>
+                            <div>
+                                {{ article["content"]}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class ="col-md-4">
+                    {% include 'sidebar.html' %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

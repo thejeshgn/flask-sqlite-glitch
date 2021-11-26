@@ -1,0 +1,10 @@
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-Security
+email_validator
+bcrypt
+pytest
+coverage
+beautifulsoup4
+Flask-Migrate
+gunicorn
